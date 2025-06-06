@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Loading from "../components/Loading";
 import { useParams } from "react-router-dom";
-import{HiArrowLeft}from 'react-icons/hi'
+import { HiArrowLeft } from "react-icons/hi";
 
 const CountryDetails = () => {
   const { name } = useParams();
 
   const [country, setcountry] = useState({});
   const [loading, setloading] = useState(true);
-
-
 
   useEffect(() => {
     const fetchdata = async () => {
@@ -36,16 +34,13 @@ const CountryDetails = () => {
     return <Loading />;
   }
 
-
-
   console.log(country);
 
   return (
     <section className=" container flex  p-5 flex-col h-screen  justify-between">
       <div className="container p-5 ">
         <h1 className="text-center text-2xl font-bold mb-2 ">
-          <p className="" >{Object.values(country.name)[0].toUpperCase()}</p>
-
+          <p className="">{Object.values(country.name)[0].toUpperCase()}</p>
         </h1>
 
         <img className="w-full h-32 object-contain" src={country.flags.svg} />
@@ -55,7 +50,7 @@ const CountryDetails = () => {
             {Object.entries(country.name.nativeName).map(
               ([code, { official }], idx, arr) => {
                 return (
-                  <span key={code} >
+                  <span key={code}>
                     {official} {""} {idx < arr.length - 1 && ", "}
                   </span>
                 );
@@ -84,7 +79,6 @@ const CountryDetails = () => {
             {/* {console.log(Object.entries(country.languages))}  */}
             {/*  [['eng', 'English'],  ['fij', 'Fijian'],  ['fij', 'Fijian']] */}
             {Object.entries(country.languages).map((item, idx, arr) => {
-              
               return (
                 <span key={idx}>
                   {" "}
@@ -110,23 +104,26 @@ const CountryDetails = () => {
           </p>
           <p>
             <span className="font-semibold">Coat of Arms: </span>
-            </p>
-            <div className="flex justify-center  ">
-              <img
-                className=" h-32 inline-block  "
-                src={country.coatOfArms.svg}
-                alt=""
-              />
-            </div>
-          
+          </p>
+          <div className="flex justify-center  ">
+            <img
+              className=" h-32 inline-block  "
+              src={country.coatOfArms.svg}
+              alt=""
+            />
+          </div>
         </div>
       </div>
-      <div className="flex justify-center">
-          
-        <button className="  bg-black text-white  w-fit px-4 py-1 rounded-lg shadow-md  hover:cursor-pointer ">
-          
-          <a className="flex justify-center items-center gap-1" href="/"><HiArrowLeft className="inline" /> Back</a>
-        </button>
+      <div className="relative   ">
+        <div className="sticky top-10 z-50 flex justify-center" >
+
+        <a
+          className="flex justify-center items-center gap-1  bg-black text-white  w-fit px-4 py-1 rounded-lg shadow-md   hover:cursor-pointer  "
+          href="/"
+        >
+          <HiArrowLeft className="inline" /> Back
+        </a>
+        </div>
       </div>
     </section>
   );

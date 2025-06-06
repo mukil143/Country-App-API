@@ -52,7 +52,7 @@ const CountryList = () => {
     <section className="  ">
       <section className=" overflow-y-scroll h-screen scrollbar-hidden">
         <h1 className="text-4xl text-black font-bold text-center mt-2 ">Countries</h1>
-        <div className="container    flex justify-center sticky pb-2 shadow-xl top-0  bg-white  ">
+        <div className="container    flex justify-center sticky pb-2 shadow-xl top-0  z-50 bg-white  ">
           <div className="   flex items-center w-86 border-1 border-gray-200 rounded-full shadow-md  px-2 text-center mt-5 md:w-xl ">
             <p className="text-2xl inline ">
               <HiSearch />
